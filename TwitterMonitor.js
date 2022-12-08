@@ -4,7 +4,7 @@ import fs from "fs"
 
 dotenv.config()
 
-let URL = "https://api.twitter.com/2/users/1553386907752701952/tweets?max_results=5"
+let URL = "https://api.twitter.com/2/users/141341662/tweets?max_results=5"
 
 console.log(
   "Chipotle Twitter Monitor v1 " +
