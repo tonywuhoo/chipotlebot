@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import { twitterClient, twitterBearer } from "./TwitterInfo.js"
+import { discordConnect } from './DiscordFunction.js'
 import fs from "fs"
 
 dotenv.config()
@@ -23,10 +24,9 @@ async function ChipotleMonitor() {
     .then(response => {
       return response.json()
     })
-  console.log(response)
   for (let i = 0; i < response.data.length; i++){
     let sortedTweet = response.data[i].text.replaceAll(".", "").split(" ")
-    console.log(sortedTweet)
+    console.log("Pulling Tweets...")
     if (sortedTweet.includes("888222")) {
       let indexofCode = sortedTweet.indexOf("888222")
       let code = sortedTweet[indexofCode - 2]
@@ -41,3 +41,5 @@ async function ChipotleMonitor() {
 }
 
 setInterval(ChipotleMonitor, 2000)
+setInterval(discordConnect, 1000)
+export { twitterClient, twitterBearer}
