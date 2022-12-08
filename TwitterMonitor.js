@@ -4,7 +4,7 @@ import fs from "fs"
 
 dotenv.config()
 
-let URL = "https://api.twitter.com/2/tweets?ids=1599838330706923543"
+let URL = "https://api.twitter.com/2/users/1553386907752701952/tweets?max_results=5"
 
 console.log(
   "Chipotle Twitter Monitor v1 " +
@@ -22,13 +22,21 @@ async function ChipotleMonitor() {
   let response = await fetch(URL, config)
     .then(response => {
       return response.json()
-    }).then(data => {
-      let text = data.data[0].text
-      let indexofCode = text.replaceAll(".", "").split(" ").indexOf("888222")
-      return text.replaceAll(".", "").split(" ")[indexofCode - 2]
     })
   console.log(response)
-  fs.writeFileSync('codes.txt', response)
+  for (let i = 0; i < response.data.length; i++){
+    let sortedTweet = response.data[i].text.replaceAll(".", "").split(" ")
+    console.log(sortedTweet)
+    if (sortedTweet.includes("888222")) {
+      let indexofCode = sortedTweet.indexOf("888222")
+      let code = sortedTweet[indexofCode - 2]
+      fs.writeFileSync('codes.txt', code)
+      console.log("Is a promotional tweet")
+    }
+    else {
+      console.log("Not a promotional tweet")
+    }
+  }
   return response
 }
 
