@@ -1,0 +1,26 @@
+{
+  "name": "chipotlebot",
+  "version": "1.0.0",
+  "description": "Automated script that fetches from Chipotle's Twitter and detects promotions that pertaining to a User sending a Code to 888-222 for a free burrito. It automates and scales the process to yield alot of free burritoes.",
+  "main": "TwitterScraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonywuhoo/chipotle-code-botter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonywuhoo/chipotle-code-botter/issues"
+  },
+  "homepage": "https://github.com/tonywuhoo/chipotle-code-botter#readme",
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "babel-loader": "^9.1.0",
+    "dotenv": "^16.0.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
