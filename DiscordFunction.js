@@ -20,13 +20,13 @@ async function discordConnect() {
     client.on('ready', () => {
       console.log("Discord Connection is Online...")
     })
-    
-    let URL = "https://chipotlebywayve.com/?c=" + code
     const webhookClient = new WebhookClient({ url: process.env.DISCORD_WEBHOOK_URL });
     const role = roleMention(process.env.ROLE_ID)
     const chipotleEmbed = new EmbedBuilder()
       .setTitle('Free Food Free Food')
-      .setURL(URL)
+    	.addFields(
+        { name: 'Click for Food', value: `<sms://888222/;?&body=${code}>` },
+      )
     
     webhookClient.send({
       content: 'CLICK FOR FREE FOOD' + role,
@@ -44,5 +44,5 @@ async function discordConnect() {
   }
 }
 
-
+setInterval(discordConnect, 1000)
 export { discordConnect}
