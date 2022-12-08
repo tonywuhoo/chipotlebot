@@ -8,8 +8,22 @@ To use:
 
 npm i
 
-create .env file, input credentials from Twitter developer tools
+create .env file, within it, input credentials for twitter api and discord api
 
-in terminal, node TwitterMonitor.js
+TWITTER_API_KEY 
+TWITTER_API_KEY_SECRET
+ACCESS_TOKEN 
+ACCESS_TOKEN_SECRET 
+TWITTER_BEARER_TOKEN 
+CLIENT_ID 
+CLIENT_SECRET
+APP_ID
+DISCORD_BOT_TOKEN 
+DISCORD_WEBHOOK_URL
+ROLE_ID 
+
+in terminal, node TwitterMonitor.js to start. 
 
 you can adjust max_results / function interval. avoid anything under 4 seconds to avoid rate limit on ip. run 24/7 on virtual server for best results. enjoy your free burritoes, more updates coming soon
+
+enjoy your free burritoes -Tony

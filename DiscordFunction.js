@@ -1,5 +1,5 @@
 import { channel } from "diagnostics_channel"
-import {Client, GatewayIntentBits, EmbedBuilder, WebhookClient} from "discord.js"
+import {Client, GatewayIntentBits, EmbedBuilder, WebhookClient, roleMention} from "discord.js"
 import dotenv from 'dotenv'
 import fs from "fs"
 dotenv.config()
@@ -21,14 +21,15 @@ async function discordConnect() {
       console.log("Discord Connection is Online...")
     })
     
+    let URL = "https://chipotlebywayve.com/?c=" + code
     const webhookClient = new WebhookClient({ url: process.env.DISCORD_WEBHOOK_URL });
-    
+    const role = roleMention(process.env.ROLE_ID)
     const chipotleEmbed = new EmbedBuilder()
       .setTitle('Free Food Free Food')
-      .setURL("https://chipotlebywayve.com/?c=" + code)
+      .setURL(URL)
     
     webhookClient.send({
-      content: 'CLICK FOR FREE FOOD',
+      content: 'CLICK FOR FREE FOOD' + role,
       username: 'Chipotle Monitor',
       avatarURL: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/800px-Chipotle_Mexican_Grill_logo.svg.png',
       embeds: [chipotleEmbed],
