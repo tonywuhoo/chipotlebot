@@ -8,7 +8,7 @@ To use:
 
 npm i
 
-create .env file, within it, input credentials for twitter api and discord api
+create .env file, within it, input credentials for twitter api and discord api, twillio api
 
 TWITTER_API_KEY 
 TWITTER_API_KEY_SECRET
@@ -21,6 +21,10 @@ APP_ID
 DISCORD_BOT_TOKEN 
 DISCORD_WEBHOOK_URL
 ROLE_ID 
+TWILLIO_AUTH 
+TWILLIO_SID 
+TWILLIO_NUMBER
+PHONE_NUMBER 
 
 in terminal, node TwitterMonitor.js to start. 
 
