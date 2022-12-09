@@ -1,7 +1,7 @@
-import { channel } from "diagnostics_channel"
 import {Client, GatewayIntentBits, EmbedBuilder, WebhookClient, roleMention} from "discord.js"
 import dotenv from 'dotenv'
 import fs from "fs"
+import { sendtoNumb } from "./TwillioAPICall.js"
 dotenv.config()
 
 
@@ -9,6 +9,7 @@ async function discordConnect() {
   let code = fs.readFileSync('codes.txt', 'utf8')
   if (code != "") {
     console.log("Sending " + code)
+    sendtoNumb()
     const client = new Client({
       intents: [
         GatewayIntentBits.Guilds,
